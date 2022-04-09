@@ -19,6 +19,28 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
+-- save and quit
+keymap("n", "S", ":w<CR>", opts)
+keymap("n", "Q", ":q<CR>", opts)
+keymap("n", "C", ":Bdelete!<CR>", opts)
+-- make Y to copy to end of the line
+keymap("n", "Y", ":y$", opts)
+
+-- cursor movement
+keymap("n", "J", "5j", opts)
+keymap("n", "K", "5k", opts)
+
+-- map command
+keymap("n", "e", ":NvimTreeToggle<CR>", opts)
+
+keymap("n", "sk", ":set nosplitbelow<CR>:split<CR>:set splitbelow<CR>", opts)
+keymap("n", "sj", ":set splitbelow<CR>:split<CR>", opts)
+keymap("n", "sn", ":set nosplitright<CR>:vsplit<CR>:set splitright<CR>", opts)
+keymap("n", "sl", ":set splitright<CR>:vsplit<CR>", opts)
+keymap("n", "srh", "<C-w>b<C-w>K", opts)
+keymap("n", "srv", "<C-w>b<C-w>H", opts)
+keymap("n", "\f", ":lua vim.lsp.buf.formatting_sync()", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -41,9 +63,14 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+-- keymap("i", "jk", "<ESC>", opts)
+keymap("i", "<C-a>", "<ESC>A", opts)
 
 -- Visual --
+
+-- copy to system clipboard
+keymap("v", "Y", '"+y', opts)
+
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -55,15 +82,16 @@ keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+-- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+-- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "J", "5j", opts)
+keymap("x", "K", "5k", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
