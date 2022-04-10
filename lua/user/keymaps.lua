@@ -22,7 +22,7 @@ vim.g.maplocalleader = " "
 -- save and quit
 keymap("n", "S", ":w<CR>", opts)
 keymap("n", "Q", ":q<CR>", opts)
-keymap("n", "C", ":Bdelete!<CR>", opts)
+keymap("n", "C", ":Bdelete<CR>", opts)
 -- make Y to copy to end of the line
 keymap("n", "Y", ":y$", opts)
 
@@ -39,7 +39,6 @@ keymap("n", "sn", ":set nosplitright<CR>:vsplit<CR>:set splitright<CR>", opts)
 keymap("n", "sl", ":set splitright<CR>:vsplit<CR>", opts)
 keymap("n", "srh", "<C-w>b<C-w>K", opts)
 keymap("n", "srv", "<C-w>b<C-w>H", opts)
-keymap("n", "\f", ":lua vim.lsp.buf.formatting_sync()", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -67,32 +66,36 @@ keymap("n", "fl", ":HopLine<cr>", opts)
 keymap("n", "fp", ":HopPattern<cr>", opts)
 keymap("n", "fc", ":HopChar1<cr>", opts)
 
+-- find file
+keymap("n", "ff", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts);
+keymap("n", "fs", ":lua require('telescope').extensions.live_grep_raw.live_grep_raw(require('telescope.themes').get_ivy())<cr>", opts)
+
 -- format
 keymap("n", "fm", ":lua vim.lsp.buf.formatting()<cr>", opts)
 
 -- debug
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", opts)
-keymap("n", "<leader>dr", "lua require'dap'.repl.open()<cr>", opts)
-keymap("n", "<leader>dl", "lua require'dap'.run_last()<cr>", opts)
-keymap('n', '<F10>', '<cmd>lua require"user.dap.dap-util".reload_continue()<CR>', opts)
-keymap("n", "<F4>", "<cmd>lua require'dap'.terminate()<cr>", opts)
-keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<F7>", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<F8>", "<cmd>lua require'dap'.step_out()<cr>", opts)
-keymap("n", "D", "<cmd>lua require'dapui'.eval()<cr>", opts)
+-- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+-- keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", opts)
+-- keymap("n", "<leader>dr", "lua require'dap'.repl.open()<cr>", opts)
+-- keymap("n", "<leader>dl", "lua require'dap'.run_last()<cr>", opts)
+-- keymap('n', '<F10>', '<cmd>lua require"user.dap.dap-util".reload_continue()<CR>', opts)
+-- keymap("n", "<F4>", "<cmd>lua require'dap'.terminate()<cr>", opts)
+-- keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
+-- keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", opts)
+-- keymap("n", "<F7>", "<cmd>lua require'dap'.step_into()<cr>", opts)
+-- keymap("n", "<F8>", "<cmd>lua require'dap'.step_out()<cr>", opts)
+-- keymap("n", "D", "<cmd>lua require'dapui'.eval()<cr>", opts)
 
 -- unit test
-keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
-keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
+-- keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
+-- keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
 
 
-keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
-keymap("n", "<leader>u", "<cmd>TroubleToggle lsp_references<cr>", opts)
+-- keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
+-- keymap("n", "<leader>u", "<cmd>TroubleToggle lsp_references<cr>", opts)
 
 -- calltree
-keymap("n", "<leader>in", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opts)
+-- keymap("n", "<leader>in", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opts)
 
 -- Insert --
 -- Press jk fast to enter

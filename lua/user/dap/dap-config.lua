@@ -62,7 +62,7 @@ end
 local function configure_debuggers()
   -- load from json file
   require('dap.ext.vscode').load_launchjs(nil, {cppdbg = {'cpp'}})
-  
+
   -- config per launage
   require("user.dap.dap-cpp")
   -- require("user.dap.di-cpp")
