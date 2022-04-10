@@ -85,16 +85,72 @@ local mappings = {
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["C"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["F"] = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw(require('telescope.themes').get_ivy())<cr>", "Find Text" },
+  ["o"] = {
+    "<cmd>AerialToggle<CR>", "Outline"
+  },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["v"] = {
+    "<cmd>lua require('telescope').extensions.neoclip.default(require('telescope.themes').get_ivy())<cr>",
+    "Clipboard Manager"
+  },
+  ["w"] = { "<cmd>w!<CR>", "Save" },
+  -- ["s"] = {
+  --   "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>",
+  --   "Find Document Symbols",
+  -- },
+  -- ["S"] = {
+  --   "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>",
+  --   -- "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
+  --   "Find Symobls",
+  -- },
+
+  c = {
+    name = "CMake",
+    g = {"<cmd>CMakeGenerate<CR>", "Generate"},
+    b = {"<cmd>CMakeBuild<CR>", "Build"},
+  },
+
+  d = {
+    name = "Debug",
+    R = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor" },
+    E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
+    X = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
+    -- C = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
+    T = { "<cmd>lua require'dapui'.toggle('sidebar')<cr>", "Toggle Sidebar" },
+    p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
+    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
+    q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+
+    -- b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+    -- c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    -- d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+    -- e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
+    -- g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+    -- h = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Hover Variables" },
+    -- S = { "<cmd>lua require'dap.ui.widgets'.scopes()<cr>", "Scopes" },
+    -- i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+    -- o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+    -- t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    -- u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+  },
+
+  T = {
+    name = "Trouble",
+    t = { "<cmd>Trouble<cr>", "ToggleTrouble" },
+    d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics"},
+    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics"},
+    q = { "<cmd>Trouble quickfix<cr>", "Quick Fix"},
+    u = { "<cmd>Trouble lsp_references<cr>", "Usage"},
+  },
 
   p = {
     name = "Packer",
@@ -128,6 +184,30 @@ local mappings = {
     },
   },
 
+  h = {
+    a = { "<cmd>HSHighlight 1<cr>", "Hightlight 1" },
+    b = { "<cmd>HSHighlight 2<cr>", "Hightlight 2" },
+    c = { "<cmd>HSHighlight 3<cr>", "Hightlight 3" },
+    d = { "<cmd>HSHighlight 4<cr>", "Hightlight 4" },
+    e = { "<cmd>HSHighlight 5<cr>", "Hightlight 5" },
+    f = { "<cmd>HSHighlight 6<cr>", "Hightlight 6" },
+    u = { "<cmd>HSRmHighlight<cr>", "RemoveHighlight" },
+    U = { "<cmd>HSRmHighlight rm_all<cr>", "RemoveAllHighlight" },
+  },
+
+  H = {
+    name = "Help",
+    -- b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    R = { "<cmd>Telescope registers<cr>", "Registers" },
+    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+    C = { "<cmd>Telescope commands<cr>", "Commands" },
+  },
+
+
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -159,6 +239,19 @@ local mappings = {
       "Workspace Symbols",
     },
   },
+
+  R = {
+    f = { "<cmd>lua require('spectre').open_file_search()<CR>", "Replace File" },
+    p = { "<cmd>lua require('spectre').open()<CR>", "Replace Project" },
+    s = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search" },
+    -- -- 全项目替换
+    -- vim.keybinds.gmap("n", "<leader>rp", "", vim.keybinds.opts)
+    -- -- 只替换当前文件
+    -- vim.keybinds.gmap("n", "<leader>rf", , vim.keybinds.opts)
+    -- -- 全项目中搜索当前单词
+    -- vim.keybinds.gmap("n", "<leader>rw", , vim.keybinds.opts)
+  },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
