@@ -71,7 +71,7 @@ keymap("n", "ff", ":lua require('telescope.builtin').find_files(require('telesco
 keymap("n", "fs", ":lua require('telescope').extensions.live_grep_raw.live_grep_raw(require('telescope.themes').get_ivy())<cr>", opts)
 
 -- format
-keymap("n", "fm", ":lua vim.lsp.buf.formatting()<cr>", opts)
+    keymap("n", "fm", ":Format<cr>", opts)
 
 -- debug
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
@@ -131,3 +131,11 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+-- unit test
+keymap("n", "rt", "<cmd>UltestNearest<cr>", opts)
+keymap("n", "rd", "<cmd>UltestDebugNearest<cr>", opts)
+
+-- sniprun
+keymap("n", "rr", ":%SnipRun<cr>", opts)
+keymap("v", "rs", ":%SnipRun<cr>", opts)

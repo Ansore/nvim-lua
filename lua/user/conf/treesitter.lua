@@ -1,13 +1,31 @@
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
+  vim.notify("treesitter not found!")
   return
 end
 
 configs.setup {
-  ensure_installed = "all", -- A list of parser names, or "all"
+  ensure_installed = {
+    "bash",
+    "cpp",
+    "c",
+    "lua",
+    "python",
+    "go",
+    "markdown",
+    "json",
+    "yaml",
+    "html",
+    "typescript",
+    "javascript",
+    "rust",
+  }, -- A list of parser names, or "all"
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "swift" }, -- List of parsers to ignore installing
+  ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {
+    enable = true,
+  },
+  matchup = {
     enable = true,
   },
   highlight = {
@@ -18,6 +36,15 @@ configs.setup {
   indent = { enable = true, disable = { "yaml" } },
   context_commentstring = {
     enable = true,
-    enable_autocmd = false,
+    config = {
+      -- Languages that have a single comment style
+      typescript = "// %s",
+      css = "/* %s */",
+      scss = "/* %s */",
+      html = "<!-- %s -->",
+      svelte = "<!-- %s -->",
+      vue = "<!-- %s -->",
+      json = "",
+    },
   },
 }

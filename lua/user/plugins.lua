@@ -49,7 +49,6 @@ return packer.startup(function(use)
 
   -- editor enhance
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "rmagatti/auto-session"   -- auto restore session(constains layout, window etc..)
   use "numToStr/Comment.nvim" -- Easily comment stuff
 
   use "akinsho/bufferline.nvim"
@@ -129,7 +128,6 @@ return packer.startup(function(use)
   }
   use "nvim-treesitter/nvim-treesitter-textobjects"  -- enhance texetobject selection
   use "romgrk/nvim-treesitter-context"  -- show class/function at the top
-  use "SmiteshP/nvim-gps"   -- statusline show class structure
   use "andymass/vim-matchup"
   -- use "JoosepAlviste/nvim-ts-context-commentstring"
 
@@ -151,6 +149,7 @@ return packer.startup(function(use)
     "rcarriga/vim-ultest",
     run = ":UpdateRemotePlugins"
   }
+  use { 'michaelb/sniprun', run = 'bash ./install.sh' }
 
   -- other
   use {
