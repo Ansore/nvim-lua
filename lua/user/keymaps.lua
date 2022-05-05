@@ -71,7 +71,7 @@ keymap("n", "ff", ":lua require('telescope.builtin').find_files(require('telesco
 keymap("n", "fs", ":lua require('telescope').extensions.live_grep_raw.live_grep_raw(require('telescope.themes').get_ivy())<cr>", opts)
 
 -- format
-    keymap("n", "fm", ":Format<cr>", opts)
+keymap("n", "fm", ":Format<cr>", opts)
 
 -- debug
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
