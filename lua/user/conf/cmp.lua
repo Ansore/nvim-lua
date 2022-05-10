@@ -133,6 +133,11 @@ if not status_luasnip_ok then
   return
 end
 
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 require("luasnip.loaders.from_vscode").lazy_load() -- load freindly-snippets
 require("luasnip.loaders.from_vscode").load({ paths = { -- load custom snippets
   vim.fn.stdpath("config") .. "/my-snippets"
@@ -234,8 +239,27 @@ CmpConfig = {
     { name = "crates" },
   },
   mapping = cmp.mapping.preset.insert {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-j>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<C-k>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     -- TODO: potentially fix emmet nonsense
@@ -275,26 +299,18 @@ CmpConfig = {
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm { select = true },
-
-    -- ["<C-e>"] = cmp.mapping.abort(),
-    -- ["<CR>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() and cmp.confirm(CmpConfig.confirm_opts) then
-    --     if jumpable(1) then
-    --       luasnip.jump(1)
-    --     end
-    --     return
-    --   end
-    --
-    --   if jumpable(1) then
-    --     if not luasnip.jump(1) then
-    --       fallback()
-    --     end
-    --   else
-    --     fallback()
-    --   end
-    -- end),
   },
 }
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
