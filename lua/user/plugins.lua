@@ -86,7 +86,7 @@ return packer.startup(function(use)
   use "ethanholz/nvim-lastplace" -- auto return back to the last modified positon when open a file
   use "BurntSushi/ripgrep" -- ripgrep
   use "nvim-pack/nvim-spectre" -- search and replace pane
-  use "haringsrob/nvim_context_vt" -- show if, for, function... end as virtual text
+  -- use "haringsrob/nvim_context_vt" -- show if, for, function... end as virtual text
   use "terryma/vim-expand-region"  -- expand/shrink region by +/-
   use "tpope/vim-repeat"    --  . command enhance
   use "tpope/vim-surround"  -- vim surround
