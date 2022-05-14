@@ -5,7 +5,6 @@ end
 
 return {
   init_options = {
-    provideFormatter = false,
   },
   settings = {
     json = {
