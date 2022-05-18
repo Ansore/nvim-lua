@@ -71,6 +71,7 @@ return packer.startup(function(use)
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "projekt0n/github-nvim-theme"
   -- use "arzg/vim-colors-xcode"
   use "nvim-lualine/lualine.nvim" -- status line
   use "goolord/alpha-nvim"  -- welcome page
