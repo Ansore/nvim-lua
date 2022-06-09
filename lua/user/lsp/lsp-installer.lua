@@ -65,5 +65,9 @@ for _, server in pairs(servers) do
     local gopls_opts = require("user.lsp.settings.gopls")
     opts = vim.tbl_deep_extend("force", gopls_opts, opts)
   end
+  if server == "pyright" then
+    local pyright_opts = require("user.lsp.settings.pyright")
+    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+  end
   lspconfig[server].setup(opts)
 end

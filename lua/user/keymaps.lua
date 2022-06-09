@@ -68,7 +68,7 @@ keymap("n", "fc", ":HopChar1<cr>", opts)
 
 -- find file
 keymap("n", "ff", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts);
-keymap("n", "fs", ":lua require('telescope').extensions.live_grep_raw.live_grep_raw(require('telescope.themes').get_ivy())<cr>", opts)
+keymap("n", "fs", ":lua require('telescope').extensions.live_grep_args.live_grep_args(require('telescope.themes').get_ivy())<cr>", opts)
 
 -- format
 -- keymap("n", "fm", ":Format<cr>", opts)
