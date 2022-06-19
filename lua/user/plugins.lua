@@ -146,8 +146,12 @@ return packer.startup(function(use)
   use "AckslD/nvim-neoclip.lua"
   use "vim-test/vim-test"
   use {
-    "rcarriga/vim-ultest",
-    run = ":UpdateRemotePlugins"
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim"
+    }
   }
   use { 'michaelb/sniprun', run = 'bash ./install.sh' }
 
