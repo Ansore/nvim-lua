@@ -50,6 +50,7 @@ return packer.startup(function(use)
   -- editor enhance
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- use "mhartington/formatter.nvim" -- format
 
   use "akinsho/bufferline.nvim"
   use { "rhysd/accelerated-jk", opt = true, event = "BufReadPost" }
