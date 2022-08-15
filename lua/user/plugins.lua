@@ -103,6 +103,7 @@ return packer.startup(function(use)
   use "b0o/SchemaStore.nvim"
   use "kosayoda/nvim-lightbulb"  -- code action
   use "ray-x/lsp_signature.nvim"  -- show function signature when typing
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Debugger
   use "ravenxrz/DAPInstall.nvim"   -- help us install several debuggers
