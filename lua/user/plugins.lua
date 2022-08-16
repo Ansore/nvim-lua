@@ -42,10 +42,13 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "rcarriga/nvim-notify"  -- notify
   use "lewis6991/impatient.nvim" -- Speed up loading Lua modules    TODO: figure out how to use this
+
+  -- lua development
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "christianchiarulli/lua-dev.nvim"
 
   -- editor enhance
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
@@ -86,7 +89,6 @@ return packer.startup(function(use)
   use "ethanholz/nvim-lastplace" -- auto return back to the last modified positon when open a file
   use "BurntSushi/ripgrep" -- ripgrep
   use "nvim-pack/nvim-spectre" -- search and replace pane
-  -- use "haringsrob/nvim_context_vt" -- show if, for, function... end as virtual text
   use "terryma/vim-expand-region"  -- expand/shrink region by +/-
   use "tpope/vim-repeat"    --  . command enhance
   use "tpope/vim-surround"  -- vim surround
@@ -98,12 +100,19 @@ return packer.startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "b0o/SchemaStore.nvim"
+  use "RRethy/vim-illuminate"
   use "kosayoda/nvim-lightbulb"  -- code action
   use "ray-x/lsp_signature.nvim"  -- show function signature when typing
+  use "SmiteshP/nvim-navic"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "j-hui/fidget.nvim"
+  use "lvimuser/lsp-inlayhints.nvim"
+  use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
   -- Debugger
   use "ravenxrz/DAPInstall.nvim"   -- help us install several debuggers
