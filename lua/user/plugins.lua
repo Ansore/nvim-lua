@@ -2,6 +2,7 @@ local fn = vim.fn
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+---@diagnostic disable-next-line: missing-parameter
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -105,7 +106,7 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim"
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "b0o/SchemaStore.nvim"
-  use "RRethy/vim-illuminate"
+  -- use "RRethy/vim-illuminate"
   use "kosayoda/nvim-lightbulb"  -- code action
   use "ray-x/lsp_signature.nvim"  -- show function signature when typing
   use "SmiteshP/nvim-navic"
@@ -119,7 +120,6 @@ return packer.startup(function(use)
   use "ravenxrz/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
-  use "nvim-telescope/telescope-dap.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -129,6 +129,9 @@ return packer.startup(function(use)
   }
   use "nvim-telescope/telescope-ui-select.nvim"
   use "nvim-telescope/telescope-live-grep-raw.nvim"
+  use "nvim-telescope/telescope-media-files.nvim"
+  use "tom-anders/telescope-vim-bookmarks.nvim"
+  use "nvim-telescope/telescope-dap.nvim"
 
   -- Treesitter
   use {
