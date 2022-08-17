@@ -1,4 +1,4 @@
-# Neovim from scratch
+# Neovim Config
 
 Each video will be associated with a branch so checkout the one you are interested in, you can follow along with this [playlist](https://www.youtube.com/watch?v=ctH-a-1eUME&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ).
 
@@ -7,6 +7,7 @@ Each video will be associated with a branch so checkout the one you are interest
 Make sure to remove or move your current `nvim` directory
 
 **IMPORTANT** Requires [Neovim v0.6.0](https://github.com/neovim/neovim/releases/tag/v0.6.0) or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly). 
+
 ```
 git clone https://github.com/LunarVim/Neovim-from-scratch.git ~/.config/nvim
 ```
@@ -63,3 +64,19 @@ Next we need to install python support (node is optional)
 > The computing scientist's main challenge is not to get confused by the complexities of his own making. 
 
 \- Edsger W. Dijkstra
+
+# Shortcut Key
+
+|   Shortcut Key   |             Action              |      |
+| :--------------: | :-----------------------------: | ---- |
+|       `S`        |              save               |      |
+|       `Q`        |              quit               |      |
+|       `C`        |          close buffer           |      |
+|     `L`,`H`      |      move navigate buffer       |      |
+|       `e`        |     open folder tree toggle     |      |
+|     `J`,`K`      |       move cursor 5 line        |      |
+| `Ctrl + h/j/k/l` | change the focus of the windows |      |
+|       `gd`       |          go to define           |      |
+|       `gi`       |         go to implement         |      |
+|       `gl`       |                                 |      |
+
