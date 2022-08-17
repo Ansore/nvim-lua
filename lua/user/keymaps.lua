@@ -67,8 +67,11 @@ keymap("n", "fp", ":HopPattern<cr>", opts)
 keymap("n", "fc", ":HopChar1<cr>", opts)
 
 -- find file
-keymap("n", "ff", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts);
-keymap("n", "fs", ":lua require('telescope').extensions.live_grep_args.live_grep_args(require('telescope.themes').get_ivy())<cr>", opts)
+keymap("n", "fs", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
+keymap("n", "ff", ":Telescope find_files<cr>", opts)
+keymap("n", "fg", ":Telescope live_grep<cr>", opts)
+keymap("n", "fb", ":Telescope buffers<cr>", opts)
+keymap("n", "fd", ":Telescope lsp_document_symbols<cr>", opts)
 
 -- format
 -- keymap("n", "fm", ":Format<cr>", opts)
