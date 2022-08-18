@@ -73,6 +73,9 @@ keymap("n", "fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "fb", ":Telescope buffers<cr>", opts)
 keymap("n", "fd", ":Telescope lsp_document_symbols<cr>", opts)
 
+-- tags
+keymap("n", "T", ":AerialToggle<cr>", opts)
+
 -- format
 -- keymap("n", "fm", ":Format<cr>", opts)
 
