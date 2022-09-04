@@ -16,7 +16,6 @@ local servers = {
   "pyright",
   "rust_analyzer",
   "tsserver",
-  "rust_analyzer",
   "gopls",
   "golangci_lint_ls"
   -- "cssls",
