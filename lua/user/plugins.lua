@@ -147,6 +147,10 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use "tanvirtin/vgit.nvim"
 
+  -- Rust
+  use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
+  use "Saecki/crates.nvim"
+
   -- tools
   use "cdelledonne/vim-cmake"
   use "skanehira/preview-markdown.vim"    -- NOTE:: glow required : https://github.com/charmbracelet/glow
