@@ -70,7 +70,7 @@ return {
         $ chmod +x ~/.local/bin/rust-analyzer
     --]]
     -- cmd = { os.getenv "HOME" .. "/.local/bin/rust-analyzer" },
-    cmd = { "rustup", "run", "nightly", os.getenv "HOME" .. "/.local/bin/rust-analyzer" },
+    cmd = { "rustup", "run", "nightly", os.getenv "HOME" .. "/.cargo/bin/rust-analyzer" },
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
 
