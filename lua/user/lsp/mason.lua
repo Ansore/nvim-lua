@@ -17,7 +17,8 @@ local servers = {
   "rust_analyzer",
   "tsserver",
   "gopls",
-  "golangci_lint_ls"
+  "golangci_lint_ls",
+  -- "dartls",
   -- "cssls",
   -- "cssmodules_ls",
   -- "emmet_ls",
@@ -113,6 +114,11 @@ for _, server in pairs(servers) do
     local pyright_opts = require "user.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
+
+  -- if server == "dartls" then
+  --   local dartls_opts = require "user.lsp.settings.dartls"
+  --   opts = vim.tbl_deep_extend("force", dartls_opts, opts)
+  -- end
 
   -- if server == "solc" then
   --   local solc_opts = require "user.lsp.settings.solc"
