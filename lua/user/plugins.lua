@@ -183,7 +183,6 @@ return packer.startup(function(use)
   -- use "liuchengxu/vista.vim"     -- outline
   -- use "simrat39/symbols-outline.nvim" -- outline
   use "stevearc/aerial.nvim"
-  -- use "stevearc/aerial.nvim"
   use "norcalli/nvim-colorizer.lua" -- show color
   use "folke/trouble.nvim"
   use "arkav/lualine-lsp-progress" -- show lsp progress

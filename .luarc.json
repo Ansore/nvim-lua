@@ -4,5 +4,6 @@
         "different-requires",
         "missing-parameter",
         "cast-local-type"
-    ]
+    ],
+    "Lua.workspace.checkThirdParty": false
 }
