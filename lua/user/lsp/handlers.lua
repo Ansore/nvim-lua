@@ -103,7 +103,6 @@ M.on_attach = function(client, bufnr)
 	attach_navic(client, bufnr)
 
 	-- add outline support for every lanuage
-	require("aerial").on_attach(client, bufnr)
 	require("lsp_signature").on_attach()
 
 	if client.name == "tsserver" then
