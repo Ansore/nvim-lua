@@ -6,7 +6,7 @@ end
 local lspconfig = require("lspconfig")
 
 local servers = {
-  'sumneko_lua',
+  'lua_ls',
   'asm_lsp',
   'jsonls',
   'clangd',
@@ -62,8 +62,8 @@ for _, server in pairs(servers) do
     local clangd_opts = require("user.lsp.settings.clangd")
     opts = vim.tbl_deep_extend("force", clangd_opts, opts)
   end
-  if server == "sumneko_lua" then
-    local sumneko_opts = require("user.lsp.settings.sumneko_lua")
+  if server == "lua_ls" then
+    local sumneko_opts = require("user.lsp.settings.lua_ls")
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
   if server == "gopls" then
