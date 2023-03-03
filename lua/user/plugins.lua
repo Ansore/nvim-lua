@@ -116,9 +116,9 @@ return packer.startup(function(use)
 
   -- Debugger
   use "ravenxrz/DAPInstall.nvim"   -- help us install several debuggers
-  use "ravenxrz/nvim-dap"
+  use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
-  use "rcarriga/nvim-dap-ui"
+  -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
